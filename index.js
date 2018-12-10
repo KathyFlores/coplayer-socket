@@ -31,10 +31,9 @@ io.on('connection', function(socket){
       io.sockets.sockets[data.local].emit('play', {errorMsg: 'user not found!'});
     }
   });
-  socket.on('error messgae', function(data) {
-    console.log('error message:' + data.local);
+  socket.on('error message', function(data) {
     if (users[data.local]) {
-      io.sockets.sockets[data.local].emit('error message', data);
+      io.sockets.seockets[data.local].emit('error message', data);
     }
   });
 });
