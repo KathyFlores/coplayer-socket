@@ -1,15 +1,9 @@
 const express = require('express');
 const app = express();
-const path = require('path');
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 
 const users = {};
-app.use('/node', express.static(path.join(__dirname, 'public')))
-
-app.get('/node/video', function(req, res){
-  res.sendFile(__dirname + '/video.html');
-});
 
 io.on('connection', function(socket){
   console.log('user connected:' + socket.id);

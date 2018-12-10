@@ -46,11 +46,8 @@ function Coplayer(inPlayer) {
     }, false);
   }
 
-
   var player = inPlayer;
  
-
-
   var socket = io();
   
   function initUi() {
