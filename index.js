@@ -5,27 +5,10 @@ const http = require('http').Server(app);
 const io = require('socket.io')(http);
 
 const users = {};
-app.use(express.static(path.join(__dirname, 'public')))
+app.use('/node', express.static(path.join(__dirname, 'public')))
 
-app.get('/video', function(req, res){
+app.get('/node/video', function(req, res){
   res.sendFile(__dirname + '/video.html');
-});
-
-app.get('/api/video', function(req, res) {
-  const data = {
-    video_list: [{
-      pid: 1,
-      front: "http://img3.imgtn.bdimg.com/it/u=3755615157,2369017090&fm=11&gp=0.jpg",
-      url: "http://pj6zp7ks4.bkt.clouddn.com/video/xytywm_test.mp4",
-      name: "西雅图夜未眠"
-    }, {
-      pid: 2,
-      front: "http://img4.imgtn.bdimg.com/it/u=2124477208,2275244596&fm=11&gp=0.jpg",
-      url: "http://pj6zp7ks4.bkt.clouddn.com/video/prxd.mp4",
-      name: "怦然心动"
-    }]
-  }
-  res.json(data);
 });
 
 io.on('connection', function(socket){
