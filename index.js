@@ -34,7 +34,7 @@ io.on('connection', function(socket){
   socket.on('error messgae', function(data) {
     console.log('error message:' + data.receiver);
     if (users[data.receiver]) {
-      io.sockets.sockets[data.receiver].emit('error', data);
+      io.sockets.sockets[data.receiver].emit('error message', data);
     }
   });
 });
