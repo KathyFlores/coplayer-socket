@@ -32,9 +32,9 @@ io.on('connection', function(socket){
     }
   });
   socket.on('error messgae', function(data) {
-    console.log('error message:' + data.receiver);
-    if (users[data.receiver]) {
-      io.sockets.sockets[data.receiver].emit('error message', data);
+    console.log('error message:' + data.local);
+    if (users[data.local]) {
+      io.sockets.sockets[data.local].emit('error message', data);
     }
   });
 });
