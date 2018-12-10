@@ -32,7 +32,10 @@ io.on('connection', function(socket){
     }
   });
   socket.on('error', function(data) {
-    users[data.receiver] && io.sockets.sockets[data.receiver].emit('error', data); 
+    if(users[data.receiver]) {
+      io.sockets.sockets[data.receiver].emit('error', data);
+      console.log('error': JSON.stringify(data));
+    }
   });
 });
 
